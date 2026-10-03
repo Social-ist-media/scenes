@@ -1,0 +1,52 @@
+@import "tailwindcss";
+
+@theme {
+  --font-sans: "Outfit", system-ui, sans-serif;
+  --font-display: "Fraunces", Georgia, serif;
+  --color-ink: #101417;
+  --color-parchment: #f3eadc;
+  --color-mist: #9aa39d;
+  --color-copper: #e09a55;
+  --color-tide: #6fafa6;
+  --radius-lg: 1.25rem;
+}
+
+@layer base {
+  html,
+  body {
+    background: var(--color-ink);
+    color: var(--color-parchment);
+    font-family: var(--font-sans);
+  }
+
+  button:not(:disabled),
+  [role="button"]:not(:disabled) {
+    cursor: pointer;
+  }
+
+  ::selection {
+    background: color-mix(in srgb, var(--color-copper) 45%, transparent);
+    color: var(--color-ink);
+  }
+}
+
+@keyframes loom-turn {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.loom-turn {
+  animation: loom-turn 36s linear infinite;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .loom-turn {
+    animation: none;
+  }
+}
+
+input[type="range"] {
+  accent-color: var(--color-copper);
+  width: 100%;
+}
